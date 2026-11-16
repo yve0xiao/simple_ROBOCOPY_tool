@@ -1,3 +1,4 @@
+**English**|[简体中文](./README.zh-CN.md)
 # simple_ROBOCOPY_tool
 
 A simple interactive wrapper around the Windows built-in tool **ROBOCOPY**, written in C23.
