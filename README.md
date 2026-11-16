@@ -1,4 +1,5 @@
-**English**|[简体中文](./README.zh-CN.md)
+**English** | [简体中文](./README.zh-CN.md)
+
 # simple_ROBOCOPY_tool
 
 A simple interactive wrapper around the Windows built-in tool **ROBOCOPY**, written in C23.
@@ -18,9 +19,7 @@ A simple interactive wrapper around the Windows built-in tool **ROBOCOPY**, writ
 
 The tool builds and runs approximately:
 
-```
 ROBOCOPY "<source>" "<destination>" /R:3 /W:1 /E /MT:<N> [calm-print flags]
-```
 
 | Flag | Meaning |
 |------|---------|
@@ -93,6 +92,8 @@ Additional notes:
 | Module | Purpose |
 |--------|---------|
 | `allocer` (`allocer/allocer.h`, `allocer/allocer_base.h`) | Custom block allocator |
+| `rand_tool` (`tools/rand_tool/rand_tool.h`) | 64-bit random number generation (`Tool_GetRandU64`) for allocator block IDs |
+| `ranxoshi256` (`third_part/ranxoshi256/ranxoshi256.h`) | Third-party PRNG implementation |
 | `config` (`config/config.h`) | Build-time constants (`DEFAULT_BUF_SIZE`, `DEFAULT_BLOCK_SIZE`, `SOURCE_DEFAULT`, …) |
 | `help_tool` (`tools/help_tool/help_tool.h`) | Path checking, `Num_CPU_Cores`, `Num_MT`, `Int_Tran_Str`, … |
 | `shlwapi` (Windows) | Path helpers |

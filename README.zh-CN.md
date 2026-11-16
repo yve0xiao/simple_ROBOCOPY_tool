@@ -18,6 +18,11 @@
 ## 命令模板
 
 该工具构建并运行的命令大致为：
+<<<<<<< HEAD
+=======
+
+ROBOCOPY "<source>" "<destination>" /R:3 /W:1 /E /MT:<N> [calm-print flags]
+>>>>>>> 1a1ab92 (Version 0.0.3)
 
 | 标志 | 含义 |
 |------|------|
@@ -88,6 +93,8 @@
 | 模块 | 用途 |
 |--------|---------|
 | `allocer`（`allocer/allocer.h`、`allocer/allocer_base.h`） | 自定义块分配器 |
+| `rand_tool`（`tools/rand_tool/rand_tool.h`） | 64 位随机数生成（`Tool_GetRandU64`），为分配器块提供 `random_id` |
+| `ranxoshi256`（`third_part/ranxoshi256/ranxoshi256.h`） | 第三方伪随机数生成器实现（PRNG） |
 | `config`（`config/config.h`） | 构建时常量（`DEFAULT_BUF_SIZE`、`DEFAULT_BLOCK_SIZE`、`SOURCE_DEFAULT`、…） |
 | `help_tool`（`tools/help_tool/help_tool.h`） | 路径检查、`Num_CPU_Cores`、`Num_MT`、`Int_Tran_Str`、… |
 | `shlwapi`（Windows） | 路径辅助函数 |
