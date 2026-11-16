@@ -9,7 +9,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#define ROBOCOPY_TOOL_VERSION "0.0.2"
+#define ROBOCOPY_TOOL_VERSION "0.0.3"
 #define BLOCK_PTR(block_name) (&(block_name))
 #define ALLOC_BLOCK(def_allocer_p, block_name, step_err)                                                                   \
     do                                                                                                                     \
