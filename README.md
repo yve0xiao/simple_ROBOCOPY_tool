@@ -118,4 +118,4 @@ Current version, printed at startup: **0.0.3**.
 
 ## License
 
-(Add your license here.)
+GNU V3.0
