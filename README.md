@@ -10,3 +10,5 @@ Compiler: WinLibs GCC 16.2.0
 Editor: Visual Studio Code
 
 Standard: C23 / GNU C23
+#### Final exe
+name: cpytool.exe
