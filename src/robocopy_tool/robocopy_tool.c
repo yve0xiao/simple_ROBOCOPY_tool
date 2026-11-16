@@ -4,6 +4,7 @@
 #include "stdio.h"
 #include "tools/help_tool/help_tool.h"
 #include <assert.h>
+#include <shlwapi.h>
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -78,7 +79,20 @@ int main(void)
         "[block init]: id: %zu,p: %p,size: %zu chars\n", block_diraction.random_id, block_diraction.ptr, DEFAULT_BLOCK_SIZE);
     (void)printf_s("[block init]: id: %zu,p: %p,size: %zu chars\n", block_cmd.random_id, block_cmd.ptr, DEFAULT_BLOCK_SIZE);
     (void)printf_s("[block init]: id: %zu,p: %p,size: %zu chars\n", block_wc.random_id, block_wc.ptr, DEFAULT_BLOCK_SIZE);
+    int cores = Num_CPU_Cores();
+    int is_Calm = 0;
+    do
+    {
+        Print_Cin_Clear(block_wc.ptr, "Is Calm to Print (Y/y n)>>");
+    } while (!((((char*)block_wc.ptr)[0] == 'Y') || (((char*)block_wc.ptr)[0] == 'y') || (((char*)block_wc.ptr)[0] == 'n')));
+    if (((char*)block_wc.ptr)[0] == 'n')
+    {
+        is_Calm = 1;
+    }
+    (void)printf_s("[Start]:\n");
     (void)printf_s("[Tool Verion]: %s\n", ROBOCOPY_TOOL_VERSION);
+    (void)printf_s("[Calm Print]: %s\n", is_Calm ? "Yes" : "No");
+    (void)printf_s("[CPU Cores]: %d ==> /MT: auto\n", cores);
     (void)printf_s(
         "=============================================================================================================="
         "==========\n");
@@ -88,7 +102,7 @@ int main(void)
     while (1)
     {
         (void)printf_s("Rules:\n\tpath can contain up to %zu characters.%s%s%s%s\n",
-                       DEFAULT_BLOCK_SIZE / 2ULL - 16ULL,
+                       DEFAULT_BLOCK_SIZE / 2ULL - 32ULL,
                        "\n\t[1] Input \"exit\" or \"Exit\" to exit !",
                        "\n\t[2] Please wait to this exe print \"Complete!\".Then close this exe.",
                        "\n\t[3] Warning: One Chinese Character maybe 2 or 3 chars.",
@@ -116,11 +130,21 @@ int main(void)
         } while (!Check_Data(data));
         char* cmd = (char*)block_cmd.ptr;
         cmd[0] = '\0';
-        strcat(cmd, "ROBOCOPY \"");
-        strcat(cmd, block_source.ptr);
-        strcat(cmd, "\" \"");
-        strcat(cmd, block_diraction.ptr);
-        strcat(cmd, "\" /R:5 /W:3 /E /MT");
+        (void)strcat(cmd, "ROBOCOPY \"");
+        (void)strcat(cmd, block_source.ptr);
+        (void)strcat(cmd, "\" \"");
+        (void)strcat(cmd, block_diraction.ptr);
+        (void)strcat(cmd, "\" /R:3 /W:1 /E /MT");
+        if (cores > 0)
+        {
+            (void)strcat(cmd, ":");
+            Int_Tran_Str(block_wc.ptr, Num_MT(cores, block_source.ptr, block_diraction.ptr));
+            (void)strcat(cmd, block_wc.ptr);
+        }
+        if (is_Calm)
+        {
+            (void)strcat(cmd, " /NFL /NDL /NJH /NJS /NP");
+        }
         (void)printf_s("[RUN cmd]: %s\n", cmd);
         FILE* r_file = _popen(cmd, "r");
         if (r_file == NULL)

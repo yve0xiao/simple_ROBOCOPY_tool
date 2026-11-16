@@ -72,4 +72,14 @@ typedef struct _Path_Data
  * @note
  */
 [[nodiscard]] int Check_Data(Path_Data data);
+/**
+ * @brief 获取cpu核心数量
+ *
+ * @return int
+ *
+ * @note
+ */
+[[nodiscard]] int Num_CPU_Cores();
+void Int_Tran_Str(char* buf, int n);
+int Num_MT(int cores, const char* src, const char* dst);
 #endif // !ROBOCOPY_TOOL_TOOLS_HELP_TOOL_H
