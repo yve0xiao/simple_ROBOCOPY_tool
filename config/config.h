@@ -12,9 +12,9 @@ typedef unsigned long long buffer_t;
 /**
  * @note 默认8个块,16个字节，处理元数据:总的可用缓冲区大小,总共的快大小
  */
-#define DEFAULT_BUF_SIZE 8208ULL
+#define DEFAULT_BUF_SIZE 9232ULL
 
-#define DEFAULT_BLOCK_SIZE 1024ULL
+#define DEFAULT_BLOCK_SIZE 1152ULL
 #define ERR_BLOCK_ID       0xFFFFFFFFFFFFFFFF
 #define PTR_T_SIZE         sizeof(uintptr_t)
 
