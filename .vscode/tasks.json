@@ -1,0 +1,122 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        // ---------- 仅编译链接（不生成 JSON） ----------
+        {
+            "label": "build-debug",
+            "type": "shell",
+            "command": "cmd",
+            "args": [
+                "/c",
+                "${workspaceFolder}\\.vscode\\build.cmd",
+                "Debug"
+            ],
+            "group": "build",
+            "problemMatcher": "$gcc"
+        },
+        {
+            "label": "build-release",
+            "type": "shell",
+            "command": "cmd",
+            "args": [
+                "/c",
+                "${workspaceFolder}\\.vscode\\build.cmd",
+                "Release"
+            ],
+            "group": "build",
+            "problemMatcher": "$gcc"
+        },
+        // ---------- 单独生成 compile_commands.json ----------
+        {
+            "label": "make-json-debug",
+            "type": "shell",
+            "command": "cmd",
+            "args": [
+                "/c",
+                "${workspaceFolder}\\.vscode\\make_json.cmd",
+                "Debug"
+            ],
+            "group": "build",
+            "problemMatcher": []
+        },
+        {
+            "label": "make-json-release",
+            "type": "shell",
+            "command": "cmd",
+            "args": [
+                "/c",
+                "${workspaceFolder}\\.vscode\\make_json.cmd",
+                "Release"
+            ],
+            "group": "build",
+            "problemMatcher": []
+        },
+        // ---------- 清理 ----------
+        {
+            "label": "clean-debug",
+            "type": "shell",
+            "command": "powershell",
+            "args": [
+                "-NoProfile",
+                "-Command",
+                "Remove-Item -Recurse -Force -ErrorAction SilentlyContinue Debug"
+            ],
+            "group": "build",
+            "problemMatcher": []
+        },
+        {
+            "label": "clean-release",
+            "type": "shell",
+            "command": "powershell",
+            "args": [
+                "-NoProfile",
+                "-Command",
+                "Remove-Item -Recurse -Force -ErrorAction SilentlyContinue Release"
+            ],
+            "group": "build",
+            "problemMatcher": []
+        },
+        // ---------- 重建（清理 + 编译） ----------
+        {
+            "label": "rebuild-debug",
+            "dependsOn": [
+                "clean-debug",
+                "build-debug"
+            ],
+            "dependsOrder": "sequence",
+            "group": "build",
+            "problemMatcher": []
+        },
+        {
+            "label": "rebuild-release",
+            "dependsOn": [
+                "clean-release",
+                "build-release"
+            ],
+            "dependsOrder": "sequence",
+            "group": "build",
+            "problemMatcher": []
+        },
+        // ---------- 先更新 JSON 再编译（一步到位） ----------
+        {
+            "label": "build-with-json-debug",
+            "dependsOn": [
+                "make-json-debug",
+                "build-debug"
+            ],
+            "dependsOrder": "sequence",
+            "group": "build",
+            "problemMatcher": []
+        },
+        {
+            "label": "build-with-json-release",
+            "dependsOn": [
+                "make-json-release",
+                "build-release"
+            ],
+            "dependsOrder": "sequence",
+            "group": "build",
+            "problemMatcher": []
+        }
+    ]
+}

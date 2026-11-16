@@ -1,0 +1,19 @@
+#ifndef ROBOCOPY_TOOL_ALLOCER_ENUM_H
+#define ROBOCOPY_TOOL_ALLOCER_ENUM_H
+typedef enum _Allocer_Buf_Source : char // C23新特性
+{
+    SOURCE_NONE,
+    SOURCE_DEFAULT,
+    SOURCE_USER,
+    SOURCE_SYSTEM
+} Allocer_Buf_Source;
+enum _Allocer_Err : char
+{
+    ALLOC_SUCCESS,
+    BUF_SIZE_SMALLER_THAN_BLOCK_SIZE,
+    NO_BUFFER,
+    UNKNOWN_BUF_SOURCE,
+    NO_FREE_BLOCK,
+    SYSTEM_ALLOC_ERR
+};
+#endif // !ROBOCOPY_TOOL_ALLOCER_ENU

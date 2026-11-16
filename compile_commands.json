@@ -1,0 +1,25 @@
+[ 
+{ 
+ "directory": "E:/vs_pro/re_robo_cpy_tool", 
+ "file": "E:/vs_pro/re_robo_cpy_tool/allocer/allocer.c", 
+ "command": "E:/vsc/winlib_gcc_16_20/bin/gcc.exe -c E:/vs_pro/re_robo_cpy_tool/allocer/allocer.c -Wall -Wextra -I. -O2 -DNDEBUG -std=gnu23 -o \"obj/Release/allocer.obj\"" 
+} 
+, 
+{ 
+ "directory": "E:/vs_pro/re_robo_cpy_tool", 
+ "file": "E:/vs_pro/re_robo_cpy_tool/src/robocopy_tool/robocopy_tool.c", 
+ "command": "E:/vsc/winlib_gcc_16_20/bin/gcc.exe -c E:/vs_pro/re_robo_cpy_tool/src/robocopy_tool/robocopy_tool.c -Wall -Wextra -I. -O2 -DNDEBUG -std=gnu23 -o \"obj/Release/robocopy_tool.obj\"" 
+} 
+, 
+{ 
+ "directory": "E:/vs_pro/re_robo_cpy_tool", 
+ "file": "E:/vs_pro/re_robo_cpy_tool/tools/help_tool/help_tool.c", 
+ "command": "E:/vsc/winlib_gcc_16_20/bin/gcc.exe -c E:/vs_pro/re_robo_cpy_tool/tools/help_tool/help_tool.c -Wall -Wextra -I. -O2 -DNDEBUG -std=gnu23 -o \"obj/Release/help_tool.obj\"" 
+} 
+, 
+{ 
+ "directory": "E:/vs_pro/re_robo_cpy_tool", 
+ "file": "E:/vs_pro/re_robo_cpy_tool/tools/rand_tool/rand_tool.c", 
+ "command": "E:/vsc/winlib_gcc_16_20/bin/gcc.exe -c E:/vs_pro/re_robo_cpy_tool/tools/rand_tool/rand_tool.c -Wall -Wextra -I. -O2 -DNDEBUG -std=gnu23 -o \"obj/Release/rand_tool.obj\"" 
+} 
+] 
