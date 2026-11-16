@@ -12,3 +12,5 @@ Editor: Visual Studio Code
 Standard: C23 / GNU C23
 #### Final exe
 name: cpytool.exe
+#### LIMIT
+MUST WIN8 UPPER！
